@@ -26,7 +26,7 @@ public class ThreadIA implements Runnable {
 		catch(InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
-
+		
 	}
 	private boolean checkESetWinner(){
 		if (s.getGiocatore1().getPawn()== 0 || s.getGiocatore2().getPawn()== 0){
@@ -38,6 +38,7 @@ public class ThreadIA implements Runnable {
 			return false;
 		}
 		}
+
 	
 	private void resetScacchiera(){
 		int i,j;
@@ -67,7 +68,7 @@ public class ThreadIA implements Runnable {
 				}
 				else
 					f.getButton(i, j).setIcon(null);
-
+				
 			}
 		}
 	}
