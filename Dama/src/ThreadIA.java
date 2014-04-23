@@ -51,6 +51,7 @@ public class ThreadIA implements Runnable {
 		}
 	}
 	
+	
 	private void refreshCaselle(){
 		int i,j;
 		for (i=0; i<8; i++){
