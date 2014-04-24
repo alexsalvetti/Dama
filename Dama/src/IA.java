@@ -1189,12 +1189,12 @@ public class IA {
 		}
 		
 			
-		
+		if (s.getList().size() != 0){
 		
 		for (Movimento move : s.getList()){
 			System.out.println("MOVIMENTI VALIDI DOPO CONTROLLO IA: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY()+"");
 		}
-
+		
 		listTemp.add(s.getList().get(ran.nextInt(s.getList().size())));
 		s.getList().clear();
 		s.getList().addAll(listTemp);
@@ -1202,9 +1202,9 @@ public class IA {
 		for (Movimento move : s.getList()){
 			System.out.println("MOVIMENTO SCELTO DA IA: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY()+"");
 		}
+		}
 	}
 	
-
 
 	public void moveIA(){
 		

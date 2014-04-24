@@ -32,7 +32,9 @@ public class ScacchieraGrafica implements ActionListener {
 			System.out.println("NUMERO PEDINE BIANCHI: "+s.getGiocatore1().getPawn()+"\n");
 			System.out.println("\nNUMERO PEDINE NERI: "+s.getGiocatore2().getPawn()+"\n");
 			
-			checkESetWinner();
+			if (checkESetWinner()==true){
+				return;
+			}
 			
 
 		}

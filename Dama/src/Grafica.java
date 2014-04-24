@@ -165,12 +165,16 @@ public class Grafica extends JFrame {
 			label1.setText("VINCONO I BIANCHI!");
 
 		}
-		if (s.getList().size()==0 && s.getGiocatore1().getPawn()>s.getGiocatore2().getPawn()){
+		if (s.getGiocatore1().getPawn()>s.getGiocatore2().getPawn()){
 			label1.setText("VINCONO I BIANCHI!");
 			
 		}
-		if (s.getList().size()==0 && s.getGiocatore2().getPawn()>s.getGiocatore1().getPawn()){
+		if (s.getGiocatore2().getPawn()>s.getGiocatore1().getPawn()){
 			label1.setText("VINCONO I NERI!");
+			
+		}
+		if (s.getGiocatore2().getPawn()==s.getGiocatore1().getPawn()){
+			label1.setText("PARITA'!");
 			
 		}
 	}

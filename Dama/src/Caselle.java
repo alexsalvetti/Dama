@@ -1,4 +1,4 @@
-
+//CASELLE
 public class Caselle {
     
 	private int x;         // Indico la riga della casella

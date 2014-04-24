@@ -15,6 +15,17 @@ public class ThreadIA implements Runnable {
 		try {
 			
 				Thread.sleep(1000);
+				if (s.getList().size()==0){
+					s.calculateMovementsAll();
+					if (s.getList().size()==0){
+						f.setVincitore();
+						resetScacchiera();
+						return;
+					}
+					else{
+						s.getList().clear();
+					}
+				}
 				if (checkESetWinner() == false){
 					f.setLabel();
 					refreshCaselle();
@@ -22,7 +33,8 @@ public class ThreadIA implements Runnable {
 				
 				
 				
-		} 
+		
+		}
 		catch(InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
