@@ -75,7 +75,7 @@ public class Grafica extends JFrame {
 		for(i=0; i<8; i++){
 			for(j=0; j<8; j++){
 				JButton b = new JButton("");  		
-
+				
 				if ((i+j)%2==0){
 					b.setBackground(new Color(61,43,31));
 					if (i>=0 && i<=2){
