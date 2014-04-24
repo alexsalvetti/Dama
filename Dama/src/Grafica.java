@@ -83,7 +83,8 @@ public class Grafica extends JFrame {
 						b.setFocusPainted(false);
 						
 					}	
-
+					
+					
 					else if (i>=5 && i<=7){
 						b.setIcon(new ImageIcon(im1));
 						b.setFocusPainted(false);
