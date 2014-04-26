@@ -45,35 +45,18 @@ public class ScacchieraGrafica implements ActionListener {
 			if (s.getGiocatore1().getTurn()==true){
 
 				playerVsPlayer();
+				if (checkESetWinner()==true){
+					return;
+				}
 				
 
 			}
 			
 			if (s.getGiocatore1().getTurn()!=true){
-				if (checkESetWinner()==true){
-					return;
-				}
+				
 				
 				refreshSelezione();
-							
-
-				if (s.getList().size()!=0){
-					
-					ia.moveIA();
-					
-					while (s.getGiocatore1().getTurn()!=true){
-						System.out.println("DOPPIA MANGIATA PC");
-						ia.moveIA();
-					}
-				}
-				else{
-					ia.bestMoves();
-					ia.moveIA();
-				}
-				
-				s.getList().clear();
-				s.canEat();
-				ThreadIA r = new ThreadIA(f,s);
+				ThreadIA r = new ThreadIA(f,s,ia);
 				Thread t = new Thread(r);
 				t.start();
 				

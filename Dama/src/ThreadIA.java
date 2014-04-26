@@ -3,42 +3,64 @@ import javax.swing.ImageIcon;
 public class ThreadIA implements Runnable {
 	Grafica f;
 	Scacchiera s;
-	
-	public ThreadIA(Grafica f,Scacchiera s) {
-		
+	IA ia;
+
+	public ThreadIA(Grafica f,Scacchiera s,IA ia) {
+
 		this.f = f;
 		this.s = s;
-		
+		this.ia = ia;
 	}
 
 	public void run(){
 		try {
-			
+
+			if (s.getList().size()!=0){
+
+				ia.moveIA();
 				Thread.sleep(1000);
-				if (s.getList().size()==0){
-					s.calculateMovementsAll();
-					if (s.getList().size()==0){
-						f.setVincitore();
-						resetScacchiera();
-						return;
-					}
-					else{
-						s.getList().clear();
-					}
-				}
-				if (checkESetWinner() == false){
-					f.setLabel();
+				refreshCaselle();
+				while (s.getGiocatore1().getTurn()!=true){
+
+					ia.moveIA();
+					Thread.sleep(1000);
 					refreshCaselle();
 				}
-				
-				
-				
-		
+			}
+			else{
+				ia.bestMoves();
+				ia.moveIA();
+				Thread.sleep(1000);
+				refreshCaselle();
+			}
+
+			s.getList().clear();
+			s.canEat();
+
+
+			if (s.getList().size()==0){
+				s.calculateMovementsAll();
+				if (s.getList().size()==0){
+					f.setVincitore();
+					resetScacchiera();
+					return;
+				}
+				else{
+					s.getList().clear();
+				}
+			}
+			if (checkESetWinner() == false){
+				f.setLabel();
+				refreshCaselle();
+			}
+
+
+
 		}
 		catch(InterruptedException ex) {
 			Thread.currentThread().interrupt();
 		}
-		
+
 	}
 	private boolean checkESetWinner(){
 		if (s.getGiocatore1().getPawn()== 0 || s.getGiocatore2().getPawn()== 0){
@@ -49,9 +71,9 @@ public class ThreadIA implements Runnable {
 		else{
 			return false;
 		}
-		}
+	}
 
-	
+
 	private void resetScacchiera(){
 		int i,j;
 		for (i=0; i<8; i++){
@@ -62,8 +84,8 @@ public class ThreadIA implements Runnable {
 			}
 		}
 	}
-	
-	
+
+
 	private void refreshCaselle(){
 		int i,j;
 		for (i=0; i<8; i++){
@@ -82,9 +104,9 @@ public class ThreadIA implements Runnable {
 				}
 				else
 					f.getButton(i, j).setIcon(null);
-				
+
 			}
 		}
 	}
-	
+
 }
