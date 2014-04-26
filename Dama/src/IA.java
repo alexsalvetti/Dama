@@ -5,14 +5,13 @@ import java.util.Random;
 public class IA {
 
 	private Scacchiera s;
-	private Grafica f;
 	private ArrayList<Movimento> listTemp = new ArrayList<Movimento>();
 	Random ran = new Random();
 	int gap,gap2,r;
 
-	public IA(Scacchiera s, Grafica f){
+	public IA(Scacchiera s){
 		this.s = s;
-		this.f = f;
+		
 	}
 
 	public void bestEat(){
@@ -33,7 +32,7 @@ public class IA {
 	}
 
 	public void bestMoves(){
-		int c =0;
+		
 		
 		listTemp.clear();		
 		

@@ -21,7 +21,7 @@ public class ScacchieraGrafica implements ActionListener {
 		this.y = y;
 		this.s = s;
 		this.f = f;
-		this.ia = new IA(s,f);
+		this.ia = new IA(s);
 
 	}
 
