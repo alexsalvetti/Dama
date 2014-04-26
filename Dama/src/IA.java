@@ -1333,30 +1333,226 @@ public class IA {
 					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
 					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
 					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
-					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&	
-							
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&								
 					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina() != null) &&	
-					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina().getColor()==0) &&	
-									
+					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina().getColor()==0) &&										
 					((s.getCasella(((move.getStartX())-2), ((move.getStartY())-2))).getPedina() != null) &&	
-					((s.getCasella(((move.getStartX())-2), ((move.getStartY())-2))).getPedina().getColor()==0) &&	
-									
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())-2))).getPedina().getColor()==0) &&										
 					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina() != null) &&	
-					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina().getColor()==0) &&	
-									
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina().getColor()==0) &&										
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==0) &&
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==true) &&
-											
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==true) &&											
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&	
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==0) &&	
-									
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==0) &&										
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
-					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==0) &&
-									
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==0) &&									
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getType()==true)) ||
+					
+					
+					
+					
+					/* DUE NERE E UNA BIANCA (nere in diagonale)
+					 * 1) NERA, VUOTA, BIANCA, NERA
+					 * 2) VUOTA, NERA, NERA, BIANCA,
+					 * 3) BIANCA, NERA, NERA, VUOTA
+					 * 4) NERA, BIANCA, VUOTA, NERA
+					 */
+					
+					
+					
+					
+					(((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 1)
+					((((move.getStartY())+2)>=0) && (((move.getStartY())+2)<=7)) &&					
+					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
+					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
+					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&								
+					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina().getColor()==0) &&						
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina().getColor()==1) &&						
+					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina() == null) &&						
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&								
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() == null) &&					
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==0) &&					
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1)) ||
+					
+					
+					
+					
+					
+					(((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 2)
+					((((move.getStartY())-2)>=0) && (((move.getStartY())-2)<=7)) &&					
+					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
+					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
+					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&						
+					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina().getColor()==0) &&								
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())-2))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())-2))).getPedina().getColor()==1) &&								
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina() == null) &&								
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() == null) &&											
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&	
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&								
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==1) &&							
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==0)) ||
+					
+					
+					
+					
+					(((((move.getStartX())-2)>=0) && (((move.getStartX())-2)<=7)) &&				// 3)
+					((((move.getStartY())+2)>=0) && (((move.getStartY())+2)<=7)) &&					
+					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
+					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
+					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&								
+					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina().getColor()==0) &&										
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())+2))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())+2))).getPedina().getColor()==1) &&										
+					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina() == null) &&										
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==0) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==true) &&											
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&	
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&									
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==1) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getType()==true) &&									
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() == null)) ||
+					
+					
+					
+					(((((move.getStartX())-2)>=0) && (((move.getStartX())-2)<=7)) &&				// 4)
+					((((move.getStartY())-2)>=0) && (((move.getStartY())-2)<=7)) &&					
+					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
+					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
+					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&								
+					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina().getColor()==0) &&										
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())-2))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())-2))).getPedina().getColor()==1) &&										
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina() == null) &&									
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&											
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&	
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==0) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getType()==true) &&									
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&									
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getType()==true)) ||
+					
+					
+					
+					/* DUE NERE E UNA BIANCA (nere in orizzontale)
+					 * 1) NERA, NERA, VUOTA, BIANCA
+					 * 2) NERA, NERA, BIANCA, VUOTA,
+					 * 3) VUOTA, BIANCA, NERA, NERA
+					 * 4) BIANCA, VUOTA, NERA, NERA
+					 */
+					
+					
+													
+					
+					(((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 1)
+					((((move.getStartY())+2)>=0) && (((move.getStartY())+2)<=7)) &&					
+					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
+					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
+					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&						
+					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() == null) &&						
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina().getColor()==0) &&						
+					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina() != null) &&
+					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina().getColor()==1) &&					
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&								
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&					
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&					
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==0)) ||
+					
+					
+					
+					
+					
+					(((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 2)
+					((((move.getStartY())-2)>=0) && (((move.getStartY())-2)<=7)) &&					
+					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
+					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
+					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&						
+					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() == null) &&									
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())-2))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())-2))).getPedina().getColor()==0) &&								
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina() != null) &&	
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina().getColor()==1) &&								
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&	
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&										
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&	
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&								
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==0) &&							
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() == null)) ||
+					
+					
+					
+					
+					(((((move.getStartX())-2)>=0) && (((move.getStartX())-2)<=7)) &&				// 3)
+					((((move.getStartY())+2)>=0) && (((move.getStartY())+2)<=7)) &&					
+					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
+					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
+					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&								
+					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina() == null) &&									
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())+2))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())+2))).getPedina().getColor()==0) &&									
+					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina() != null) &&	
+					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina().getColor()==1) &&										
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() == null) &&											
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&	
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==0) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getType()==true) &&									
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==1) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getType()==true) &&									
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1)) ||
+					
+					
+					
+					(((((move.getStartX())-2)>=0) && (((move.getStartX())-2)<=7)) &&				// 4)
+					((((move.getStartY())-2)>=0) && (((move.getStartY())-2)<=7)) &&					
+					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
+					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
+					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&
+					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&								
+					((s.getCasella(((move.getStartX())-2), (move.getStartY()))).getPedina() == null) &&										
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())-2))).getPedina() != null) &&	
+					((s.getCasella(((move.getStartX())-2), ((move.getStartY())-2))).getPedina().getColor()==0) &&										
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina() != null) &&
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina().getColor()==1) &&									
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==0) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==true) &&											
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() == null) &&										
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==1) &&									
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1) &&
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getType()==true)) ||	
 					
 					
 					
