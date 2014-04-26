@@ -258,6 +258,11 @@ public class Scacchiera {
 			}
 		}
 	}
+	
+	/* Questa funzione calcola tutti i movimenti (non mangiate) che può fare un giocatore su una determinata casella. E' divisa in due parti:
+	 * calculateMovements e calculateCode. Una volta verificata il tipo di pedina cambia il valore di gap a seconda di che giocatore siamo e in che
+	 * direzione stiamo giocando, in modo da poter effettuare i controlli correttamente. Una volta faccio ciò chiama la funzione calculateCode.
+	 */
 
 	public void calculateMovements(int x, int y){
 
@@ -286,6 +291,11 @@ public class Scacchiera {
 
 	}
 
+	/* E' la funzione che effettua i controlli veri e propri dei possibili spostamenti che può fare quella pedina e li salva
+	 * nell'array listMoves.
+	 * 
+	 */
+	
 	private void calculateCode(int x, int y,int gap){
 
 		if (x-gap >= 0 && x-gap<=7){
