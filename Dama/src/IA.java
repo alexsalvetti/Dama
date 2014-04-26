@@ -1235,7 +1235,7 @@ public class IA {
 					
 					
 					
-					(move.getStartX()==0) || (move.getStartX()==5)
+					(move.getStartX()==5)
 							
 					
 
