@@ -4,12 +4,11 @@ import java.util.ArrayList;
 
 public class Scacchiera {
 
-	private Caselle[][] casella= new Caselle[8][8];
-	private Giocatore p1,p2;
+	private Caselle[][] casella= new Caselle[8][8];                                  // Definisco un array bidimensionale composto da 64 caselle
+	private Giocatore p1,p2;                                                         
 	private int color1,color2,gap,gap2;
-	private ArrayList<Movimento> listMoves = new ArrayList<Movimento>();
-	private static boolean lock = false;
-	private boolean vittoria = false;
+	private ArrayList<Movimento> listMoves = new ArrayList<Movimento>();             // Lista che conterrà alcune delle mosse ammesse a quel giocatore in quel turno
+	private static boolean lock = false;                                             // variabile statica che viene settata a true in caso di una mangiata multipla, in modo da non eseguire altre operazioni fino alla conclusione della stessa
 
 	public Scacchiera(Giocatore p1, Giocatore p2){
 
@@ -25,6 +24,13 @@ public class Scacchiera {
 
 	}
 
+	/* Funzione che inserisce nell'array listmoves possibili mangiate che può fare il giocatore: 
+	 * La funzione è divisa in due parti, ovvero canEat e calculateEat; la prima, visto che il
+	 * controllo viene fatto su tutta la scacchiera in quanto le mangiate nella dama italiana
+	 * sono obbligatorie e vanno controllate tutte subito, serve per fare in modo di non 
+	 * effettuare un controllo che vada fuori dai bordi della scacchiera, generando degli errori.
+	 */
+	
 	public void canEat(){
 		if (listMoves.size()==0){
 		int x,y;
@@ -93,6 +99,10 @@ public class Scacchiera {
 		}
 	}
 
+	/* Questa è la seconda parte della funzione della mangiata. Viene chiamata direttamente all'interno
+	 * della canEat ed inserisce il movimento completo della mangiata all'interno dell'array listMoves.
+	 */
+	
 	private void calculateEat(int x, int y, int color1, int color2, int gap, int gap2){
 
 		if(y>1 && y<6){		
@@ -137,6 +147,12 @@ public class Scacchiera {
 
 	}
 	
+	/* Equivalente alla funzione canEat ma il controllo della mangiata viene effettuato solo su una determinata
+	 * casella. Questa funzione viene chiamata in caso di mangiata multipla, in quanto se dopo la prima mangiata sono
+	 * presenti altre mangiate da parte della stessa pedina, devo salvare solo quelle di quella pedina e non altre possibili
+	 * mangiate in altre posizioni della scacchiera.
+	 * 
+	 */
 	
 	private void canEatWithParameters(int x, int y){
 		if (listMoves.size()==0){
@@ -201,7 +217,12 @@ public class Scacchiera {
 				}
 			}
 		}
-		
+	
+	/* Questa funzione calcola tutti i movimenti (non mangiate) che può fare un giocatore sulla scacchiera. Viene utilizzata
+	 * per verificare se quel giocatore finisce i movimenti possibili, anche se non è ancora arrivato a zero pedine perchè 
+	 * magari è stato bloccato dall'avversario.
+	 * 
+	 */
 	
 	public void calculateMovementsAll(){
 		int x,y;
