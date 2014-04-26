@@ -1,9 +1,9 @@
 import javax.swing.ImageIcon;
 
 public class ThreadIA implements Runnable {
-	Grafica f;
-	Scacchiera s;
-	IA ia;
+	private Grafica f;
+	private Scacchiera s;
+	private IA ia;
 
 	public ThreadIA(Grafica f,Scacchiera s,IA ia) {
 

@@ -43,6 +43,7 @@ public class Grafica extends JFrame {
 	private Giocatore g1;
 	private Giocatore g2;
 	private Scacchiera s = new Scacchiera(g1,g2);
+	private IA ia;
 	
 
 
@@ -53,6 +54,7 @@ public class Grafica extends JFrame {
 		this.g1=g1;
 		this.g2=g2;
 		this.s=new Scacchiera(g1,g2);
+		ia = new IA(s);
 		int i,j;
 		setSize(700,700);
 		menuBar.add(optionsMenu);
@@ -91,7 +93,7 @@ public class Grafica extends JFrame {
 
 					}        		   
 
-					b.addActionListener(new ScacchieraGrafica(i,j,s,this));
+					b.addActionListener(new ScacchieraGrafica(i,j,s,this,ia));
 					p2.add(b);
 
 					grigliabottoni[i][j]=b;
@@ -100,7 +102,7 @@ public class Grafica extends JFrame {
 				}
 				else{
 					b.setBackground(new Color(210,180,140));
-					b.addActionListener(new ScacchieraGrafica(i,j,s,this));
+					b.addActionListener(new ScacchieraGrafica(i,j,s,this,ia));
 					p2.add(b);
 					grigliabottoni[i][j]=b; 
 

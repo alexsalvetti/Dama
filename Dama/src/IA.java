@@ -7,7 +7,7 @@ public class IA {
 	private Scacchiera s;
 	private ArrayList<Movimento> listTemp = new ArrayList<Movimento>();
 	Random ran = new Random();
-	int gap,gap2,r;
+	int r;
 
 	public IA(Scacchiera s){
 		this.s = s;

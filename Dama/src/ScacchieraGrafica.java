@@ -11,17 +11,15 @@ public class ScacchieraGrafica implements ActionListener {
 	private Grafica f;
 	private IA ia;
 	private static int startx=-1,starty=-1;
-	
-	
-	
+		
 
 
-	public ScacchieraGrafica(int x, int y,Scacchiera s, Grafica f)	{
+	public ScacchieraGrafica(int x, int y,Scacchiera s, Grafica f, IA ia)	{
 		this.x = x;
 		this.y = y;
 		this.s = s;
 		this.f = f;
-		this.ia = new IA(s);
+		this.ia = ia;
 
 	}
 
@@ -29,49 +27,26 @@ public class ScacchieraGrafica implements ActionListener {
 
 		if (s.getGiocatore2().getType()==false ){
 			playerVsPlayer();
-			System.out.println("NUMERO PEDINE BIANCHI: "+s.getGiocatore1().getPawn()+"\n");
-			System.out.println("\nNUMERO PEDINE NERI: "+s.getGiocatore2().getPawn()+"\n");
-			
 			if (checkESetWinner()==true){
 				return;
 			}
-			
-
 		}
 
-
 		else{
-			
 			if (s.getGiocatore1().getTurn()==true){
-
 				playerVsPlayer();
 				if (checkESetWinner()==true){
 					return;
-				}
-				
-
+				}			
 			}
 			
-			if (s.getGiocatore1().getTurn()!=true){
-				
-				
+			if (s.getGiocatore1().getTurn()!=true){				
 				refreshSelezione();
 				ThreadIA r = new ThreadIA(f,s,ia);
 				Thread t = new Thread(r);
 				t.start();
-				
-
-
-
 			}
-
-			System.out.println("NUMERO PEDINE BIANCHI: "+s.getGiocatore1().getPawn()+"\n");
-			System.out.println("\nNUMERO PEDINE NERI: "+s.getGiocatore2().getPawn()+"\n");
-			
-
 		}
-
-
 
 	}
 
@@ -149,6 +124,7 @@ public class ScacchieraGrafica implements ActionListener {
 				if (x==move.getStartX() && y == move.getStartY())
 					f.getButton(move.getEndX(), move.getEndY()).setBackground(new Color(255,255,102));
 			}
+			
 		}
 		else if ((startx==-1 && starty==-1) || (s.getGiocatore1().getTurn()== true && s.getCasella(x,y).getPedina()!= null && s.getCasella(x,y).getPedina().getColor()==0) || (s.getGiocatore1().getTurn()== false && s.getCasella(x,y).getPedina()!= null && s.getCasella(x,y).getPedina().getColor()==1)){
 			if (Scacchiera.isLock() ==false)
@@ -165,8 +141,10 @@ public class ScacchieraGrafica implements ActionListener {
 					f.getButton(move.getEndX(), move.getEndY()).setBackground(new Color(255,255,102));
 				}
 			}
+		
 		}
 		else{
+			
 			s.move(startx,starty,x,y);
 			startx=-1;
 			starty=-1;
@@ -198,6 +176,8 @@ public class ScacchieraGrafica implements ActionListener {
 			}
 		}
 	}
+	
+	
 	private boolean checkESetWinner(){
 	if (s.getGiocatore1().getPawn()== 0 || s.getGiocatore2().getPawn()== 0){
 		f.setVincitore();
@@ -208,6 +188,7 @@ public class ScacchieraGrafica implements ActionListener {
 		return false;
 	}
 	}
+	
 	
 }
 
