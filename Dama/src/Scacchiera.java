@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Scacchiera {
 
 	private Caselle[][] casella= new Caselle[8][8];                                  // Definisco un array bidimensionale composto da 64 caselle
-	private Giocatore p1,p2;                                                         
-	private int color1,color2,gap,gap2;
+	private Giocatore p1,p2;                                                         // Passo i riferimenti dei giocatori alla scacchiera
+	private int color1,color2,gap,gap2;                                              // Variabili che vengono utilizzate per invertire i controlli sulla scacchiera per i movimenti o per le mangiate, per cambiare il verso dall'alto verso il basso o viceversa
 	private ArrayList<Movimento> listMoves = new ArrayList<Movimento>();             // Lista che conterrà alcune delle mosse ammesse a quel giocatore in quel turno
 	private static boolean lock = false;                                             // variabile statica che viene settata a true in caso di una mangiata multipla, in modo da non eseguire altre operazioni fino alla conclusione della stessa
 

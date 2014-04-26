@@ -1,6 +1,7 @@
 import javax.swing.ImageIcon;
 
 public class ThreadIA implements Runnable {
+	
 	private Grafica f;
 	private Scacchiera s;
 	private IA ia;
@@ -75,6 +76,7 @@ public class ThreadIA implements Runnable {
 
 
 	private void resetScacchiera(){
+		
 		int i,j;
 		for (i=0; i<8; i++){
 			for( j = 0; j<8; j++){
@@ -83,10 +85,11 @@ public class ThreadIA implements Runnable {
 
 			}
 		}
+		
 	}
 
-
 	private void refreshCaselle(){
+		
 		int i,j;
 		for (i=0; i<8; i++){
 			for( j = 0; j<8; j++){

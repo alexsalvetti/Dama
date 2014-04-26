@@ -112,7 +112,7 @@ public class Grafica extends JFrame {
 			}
 		}
 
-
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	} 
@@ -127,7 +127,7 @@ public class Grafica extends JFrame {
 			im1 = ImageIO.read(new File("images/pedina1.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH);
 			im2 = ImageIO.read(new File("images/pedina2.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH);
 			im3 = ImageIO.read(new File("images/pedina3.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH);
-			im4 = ImageIO.read(new File("images/pedina4.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH); //che scosciata questa a destra
+			im4 = ImageIO.read(new File("images/pedina4.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH);
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -230,10 +230,5 @@ class ListenMenu2 implements ActionListener {
 		@SuppressWarnings("unused")
 		Grafica f = new Grafica(g1,g2);
 		
-
 	}
 }
-
-
-
-

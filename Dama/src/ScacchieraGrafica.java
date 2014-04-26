@@ -11,10 +11,11 @@ public class ScacchieraGrafica implements ActionListener {
 	private Grafica f;
 	private IA ia;
 	private static int startx=-1,starty=-1;
+
+
+
+	public ScacchieraGrafica(int x, int y,Scacchiera s, Grafica f, IA ia) {
 		
-
-
-	public ScacchieraGrafica(int x, int y,Scacchiera s, Grafica f, IA ia)	{
 		this.x = x;
 		this.y = y;
 		this.s = s;
@@ -39,7 +40,7 @@ public class ScacchieraGrafica implements ActionListener {
 					return;
 				}			
 			}
-			
+
 			if (s.getGiocatore1().getTurn()!=true){				
 				refreshSelezione();
 				ThreadIA r = new ThreadIA(f,s,ia);
@@ -47,11 +48,10 @@ public class ScacchieraGrafica implements ActionListener {
 				t.start();
 			}
 		}
-
 	}
 
-
 	private void refreshCaselle(){
+		
 		int i,j;
 		for (i=0; i<8; i++){
 			for( j = 0; j<8; j++){
@@ -72,9 +72,11 @@ public class ScacchieraGrafica implements ActionListener {
 
 			}
 		}
+		
 	}
-	
+
 	private void refreshSelezione(){
+		
 		int i,j;
 		for(i=0;i<8;i++){
 			for(j=0;j<8;j++){
@@ -85,35 +87,37 @@ public class ScacchieraGrafica implements ActionListener {
 				else{
 					f.getButton(i, j).setBackground(new Color(210,180,140));
 
-
 				}
 			}
 		}
+		
 	}
-	
+
 	private void resetScacchiera(){
+		
 		int i,j;
 		for (i=0; i<8; i++){
 			for( j = 0; j<8; j++){
-
 				f.getButton(i, j).setIcon(null);
-
 			}
 		}
+		
 	}
 
 	private void selezioneRossa(){
+		
 		if (s.getCasella(x, y).getBoxColor()==1 && s.getGiocatore1().getTurn()==true && s.getCasella(x, y).getPedina()!=null && s.getCasella(x, y).getPedina().getColor()==0 ){
 			f.getButton(x, y).setBackground(new Color(0,168,107));
-
 		}
 
 		if (s.getCasella(x, y).getBoxColor()==1 && s.getGiocatore1().getTurn()==false && s.getCasella(x, y).getPedina()!=null && s.getCasella(x, y).getPedina().getColor()==1 ){
 			f.getButton(x, y).setBackground(new Color(0,168,107));
 		}
+		
 	}
 
 	private void playerVsPlayer(){
+		
 		refreshSelezione();	
 		selezioneRossa();		
 		if (s.getList().size()==0){			
@@ -124,7 +128,6 @@ public class ScacchieraGrafica implements ActionListener {
 				if (x==move.getStartX() && y == move.getStartY())
 					f.getButton(move.getEndX(), move.getEndY()).setBackground(new Color(255,255,102));
 			}
-			
 		}
 		else if ((startx==-1 && starty==-1) || (s.getGiocatore1().getTurn()== true && s.getCasella(x,y).getPedina()!= null && s.getCasella(x,y).getPedina().getColor()==0) || (s.getGiocatore1().getTurn()== false && s.getCasella(x,y).getPedina()!= null && s.getCasella(x,y).getPedina().getColor()==1)){
 			if (Scacchiera.isLock() ==false)
@@ -141,10 +144,9 @@ public class ScacchieraGrafica implements ActionListener {
 					f.getButton(move.getEndX(), move.getEndY()).setBackground(new Color(255,255,102));
 				}
 			}
-		
 		}
 		else{
-			
+
 			s.move(startx,starty,x,y);
 			startx=-1;
 			starty=-1;
@@ -152,43 +154,40 @@ public class ScacchieraGrafica implements ActionListener {
 			if (Scacchiera.isLock() == false){
 				s.getList().clear();
 				s.canEat();	
-				
-				}
-				
 			}
-			refreshCaselle();
-			f.setLabel();
-			//
+		}
+		refreshCaselle();
+		f.setLabel();
+		if (s.getList().size()==0){
+			s.calculateMovementsAll();
 			if (s.getList().size()==0){
-				s.calculateMovementsAll();
-				if (s.getList().size()==0){
-					f.setVincitore();
-					resetScacchiera();
-					return;
-				}
-				else{
-					s.getList().clear();
-				}
-			//
+				f.setVincitore();
+				resetScacchiera();
+				return;
+			}
+			else{
+				s.getList().clear();
+			}
 			for (Movimento move : s.getList()) { 
 				if (move.getPriority()==2)
 					f.getButton(move.getEndX(), move.getEndY()).setBackground(new Color(255,255,102));
 			}
 		}
+		
 	}
-	
-	
+
 	private boolean checkESetWinner(){
-	if (s.getGiocatore1().getPawn()== 0 || s.getGiocatore2().getPawn()== 0){
-		f.setVincitore();
-		resetScacchiera();
-		return true;	
+		
+		if (s.getGiocatore1().getPawn()== 0 || s.getGiocatore2().getPawn()== 0){
+			f.setVincitore();
+			resetScacchiera();
+			return true;	
+		}
+		else{
+			return false;
+		}
+		
 	}
-	else{
-		return false;
-	}
-	}
-	
-	
+
 }
 
