@@ -196,7 +196,7 @@ class ListenMenu1 implements ActionListener {
 		fr.setVisible(false);
 		fr.dispose();
 		s.getList().clear();
-		
+		@SuppressWarnings("unused")
 		Start f = new Start();
 	}
 }
@@ -225,6 +225,7 @@ class ListenMenu2 implements ActionListener {
 			s.getGiocatore1().setTurn(true);
 			s.getGiocatore2().setTurn(false);
 		}
+		@SuppressWarnings("unused")
 		Grafica f = new Grafica(g1,g2);
 		
 

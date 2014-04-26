@@ -7,6 +7,7 @@ import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -102,6 +103,7 @@ class ListenButton1 implements ActionListener {
 		
 		fr.setVisible(false);
 		fr.dispose();
+		@SuppressWarnings("unused")
 		Grafica f = new Grafica(new Giocatore(0,true,false),new Giocatore(1,false,true));
 	}
 }
@@ -117,6 +119,7 @@ class ListenButton2 implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		fr.setVisible(false);
 		fr.dispose();
+		@SuppressWarnings("unused")
 		Grafica f = new Grafica(new Giocatore(0,true,false),new Giocatore(1,true,false));
 		
 	}
