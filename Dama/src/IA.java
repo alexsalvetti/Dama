@@ -131,12 +131,14 @@ public class IA {
 					
 					
 					
+					/* COONTROLLI PER SPINGERE A DIVENTARE DAMONE */
 					
 					
 					
 					
 					
-					(((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 1)
+					((move.getStartX()==5) &&
+					((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 1)
 					((((move.getStartY())+2)>=0) && (((move.getStartY())+2)<=7)) &&
 					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&	
 					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&
@@ -161,7 +163,8 @@ public class IA {
 					
 					
 					
-					(((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 2)
+					((move.getStartX()==5) &&
+					((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 2)
 					((((move.getStartY())-2)>=0) && (((move.getStartY())-2)<=7)) &&
 					((((move.getEndX())+1)>=0) && (((move.getEndX())+1)<=7)) &&	
 					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&
@@ -207,12 +210,6 @@ public class IA {
 					
 					
 					
-					
-					
-					
-							
-							
-							
 					){
 				System.out.println("MOSSA VINCENTE: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY());
 				listTemp.add(move);	
