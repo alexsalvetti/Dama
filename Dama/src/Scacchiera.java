@@ -324,6 +324,11 @@ public class Scacchiera {
 		}
 
 	}
+	
+	/* Funzione che effettua lo spostamento della pedina da una posizione ad un'altra (se corretta) e cambia il turno alla fine. Se il movimento 
+	 * effettuato è una mangiata, chiama la funzione DoppiaETripla e controlla che non ci siano doppie mangiate da effettuare. Se ci sono setta
+	 * la variabile lock a true e non cambia il turno del giocatore fino a quando il giocatore non termina tutte le mangiate che ha a disposizione.
+	 */
 
 	public void move(int sx, int sy, int x, int y){
 		
@@ -359,6 +364,8 @@ public class Scacchiera {
 		
 	}
 
+	// Funzione che controlla se sono presenti doppie mangiate o meno.
+	
 	private void doppiaETripla(int x, int y){
 		setLock(true);
 		canEatWithParameters(x,y);
@@ -367,11 +374,11 @@ public class Scacchiera {
 			setLock(false);
 			return;
 		}
-		
-		
-		
+				
 	}
 
+	// Funzione che cambia il turno del giocatore
+	
 	private void changeTurn(){
 		
 		this.p1.setTurn(!this.p1.getTurn());
@@ -379,6 +386,9 @@ public class Scacchiera {
 		
 	}
 
+	
+	// get e set degli attributi
+	
 	public Caselle getCasella(int x,int y){
 		
 		return casella[x][y];
