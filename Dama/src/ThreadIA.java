@@ -87,7 +87,6 @@ public class ThreadIA implements Runnable {
 
 			}
 		}
-		
 	}
 
 	private void refreshCaselle(){
