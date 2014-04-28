@@ -147,6 +147,8 @@ public class Grafica extends JFrame {
 		return im4;
 	}
 
+	// Funzione che cambia la label contenente il turno dei giocatori
+	
 	public void setLabel(){
 		if (s.getGiocatore1().getTurn()==false){
 			label1.setText("E' IL TURNO DEI NERI");
@@ -159,6 +161,8 @@ public class Grafica extends JFrame {
 		}
 	}
 
+	// Funzione che setta la label dopo la vittoria da parte di un giocatore o in situazione di pareggio
+	
 	public void setVincitore(){
 		if (s.getGiocatore1().getPawn()== 0){
 			label1.setText("VINCONO I NERI!");

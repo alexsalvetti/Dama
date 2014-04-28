@@ -10,6 +10,10 @@ public class Scacchiera {
 	private ArrayList<Movimento> listMoves = new ArrayList<Movimento>();             // Lista che conterrà alcune delle mosse ammesse a quel giocatore in quel turno
 	private static boolean lock = false;                                             // variabile statica che viene settata a true in caso di una mangiata multipla, in modo da non eseguire altre operazioni fino alla conclusione della stessa
 
+	/* Nel costruttore costruisco la scacchiera con un array bidimensionale contenente le caselle,
+	 * quindi un array di tipo Caselle
+	 */
+	
 	public Scacchiera(Giocatore p1, Giocatore p2){
 
 		int x,y;
@@ -113,7 +117,6 @@ public class Scacchiera {
 							(casella[x][y].getPedina().getType()==false && casella[x-gap][y+gap2].getPedina().getType()==false) )){
 				Movimento m1 = new Movimento(x,y,x-(gap*2),y+(gap2*2),casella[x][y].getPedina(),2);
 				this.listMoves.add(m1);
-				System.out.println("DEVO MANGIARE "+x+","+y+"-->"+(x-(gap*2))+","+(y+(gap2*2)));
 			}
 			if (casella[x-gap][y-gap2].getPedina()!=null && casella[x][y].getPedina().getColor()==color1 && casella[x-(gap*2)][y-(gap2*2)].getPedina() == null 
 					&& casella[x-gap][y-gap2].getPedina().getColor()==color2 && 
@@ -122,7 +125,6 @@ public class Scacchiera {
 							(casella[x][y].getPedina().getType()==false && casella[x-gap][y-gap2].getPedina().getType()==false) )){
 				Movimento m2 = new Movimento(x,y,x-(gap*2),y-(gap2*2),casella[x][y].getPedina(),2);
 				this.listMoves.add(m2);
-				System.out.println("DEVO MANGIARE "+x+","+y+"-->"+(x-(gap*2))+","+(y-(gap2*2)));
 			}
 		}	    		
 		else if (y<=1){
@@ -130,7 +132,6 @@ public class Scacchiera {
 					&& casella[x-gap][y+gap2].getPedina().getColor()==color2 && ((casella[x][y].getPedina().getType()==true && casella[x-gap][y+gap2].getPedina().getType()==false) || (casella[x][y].getPedina().getType()==true && casella[x-gap][y+gap2].getPedina().getType()==true) || (casella[x][y].getPedina().getType()==false && casella[x-gap][y+gap2].getPedina().getType()==false) )){
 				Movimento m1 = new Movimento(x,y,x-(gap*2),y+(gap2*2),casella[x][y].getPedina(),2);
 				this.listMoves.add(m1);
-				System.out.println("DEVO MANGIARE "+x+","+y+"-->"+(x-(gap*2))+","+(y+(gap2*2)));
 			}
 		}
 		else{
@@ -140,7 +141,6 @@ public class Scacchiera {
 							(casella[x][y].getPedina().getType()==false && casella[x-gap][y-gap2].getPedina().getType()==false) )){
 				Movimento m2 = new Movimento(x,y,x-(gap*2),y-(gap2*2),casella[x][y].getPedina(),2);
 				this.listMoves.add(m2);
-				System.out.println("DEVO MANGIARE "+x+","+y+"-->"+(x-(gap*2))+","+(y-(gap2*2)));
 			}
 		}
 		
@@ -303,26 +303,22 @@ public class Scacchiera {
 				if (casella[(x-gap)][(y-1)].getPedina()==null){
 					Movimento m1 = new Movimento(x,y,x-gap,y-1,casella[x][y].getPedina(),1);
 					this.listMoves.add(m1);
-					System.out.println("MOSSA VALIDA "+(x-gap)+","+(y-1));
 				}
 				if (casella[(x-gap)][(y+1)].getPedina()==null){
 					Movimento m2 = new Movimento(x,y,x-gap,y+1,casella[x][y].getPedina(),1);
 					this.listMoves.add(m2);
-					System.out.println("MOSSA VALIDA "+(x-gap)+","+(y+1));
 				}				    
 			}
 			else if (y==0){
 				if (casella[x-gap][y+1].getPedina()==null) {
 					Movimento m = new Movimento(x,y,x-gap,y+1,casella[x][y].getPedina(),1);
 					this.listMoves.add(m);
-					System.out.println("MOSSA VALIDA "+(x-gap)+","+(y+1));
 				}
 			}   
 			else {
 				if (casella[x-gap][y-1].getPedina()==null) {
 					Movimento m = new Movimento(x,y,x-gap,y-1,casella[x][y].getPedina(),1);
 					this.listMoves.add(m);
-					System.out.println("MOSSA VALIDA "+(x-gap)+","+(y-1));
 				}
 			}
 		}
@@ -341,7 +337,6 @@ public class Scacchiera {
 						this.listMoves.get(i).getPedina().setType(true);
 					casella[x][y].setPedina(this.listMoves.get(i).getPedina());
 					casella[this.listMoves.get(i).getStartX()][this.listMoves.get(i).getStartY()].setPedina(null);
-					System.out.println("\nMANGIATA EFFETTUATA\n");
 					if (casella[x][y].getPedina().getColor()==1)
 						p1.decPawn();
 					else
@@ -355,7 +350,6 @@ public class Scacchiera {
 						this.listMoves.get(i).getPedina().setType(true);
 					casella[x][y].setPedina(this.listMoves.get(i).getPedina());
 					casella[this.listMoves.get(i).getStartX()][this.listMoves.get(i).getStartY()].setPedina(null);
-					System.out.println("\nSPOSTAMENTO VALIDO\n");
 					changeTurn();
 					listMoves.clear();
 					return;

@@ -14,45 +14,32 @@ public class IA {
 		
 	}
 
-	public void bestEat(){
-		listTemp.clear();
-		if (s.getList().size()!=0){
-			
-			listTemp.add(s.getList().get(ran.nextInt(s.getList().size())));
-			s.getList().clear();
-			s.getList().addAll(listTemp);
-		}		
-		
-		for (Movimento move : s.getList()){
-			System.out.println("MANGIATA SCELTA DOPO CONTROLLO IA: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY()+"");
-		}
-
-
-
-	}
+	
+	
+	/* Funzione che calcola le mosse per il computer. La funzione è divisa in 3 parti:
+	 * nella prima fase calcola, tra tutte le mosse possibili, se ci sono mosse intelligenti che darebbero vantaggio;
+	 * se non trova mosse intelligenti, passa alla seconda fase che scarta tutte le mossi peggiori dalla lista completa
+	 * di mosse che può fare; se non trova mosse da scartare oppure le scarta tutte, sceglie una mossa a caso e la esegue.
+	 */
 
 	public void bestMoves(){
 		
 		
-		listTemp.clear();		
-		
-		s.calculateMovementsAll();
-		
-		
-		
+		listTemp.clear();				
+		s.calculateMovementsAll();		
 		if (s.getList().size()!=0){
-		
-		for (Movimento move : s.getList()) { 	
-			
-			/* -- MOSSE PER PROTEGGERE LE PEDINE --:
-			 * 1) NERA, NERA, BIANCA
-			 * 2) NERA, NERA, BIANCA
-			 * 3) BIANCA, NERA, NERA
-			 * 4) BIANCA, NERA, NERA
-			 */
-			
-			
-			if (
+
+			for (Movimento move : s.getList()) { 	
+
+				/* -- MOSSE PER PROTEGGERE LE PEDINE --:
+				 * 1) NERA, NERA, BIANCA
+				 * 2) NERA, NERA, BIANCA
+				 * 3) BIANCA, NERA, NERA
+				 * 4) BIANCA, NERA, NERA
+				 */
+
+
+				if (
 					(((((move.getStartX())+3)>=0) && (((move.getStartX())+3)<=7)) &&				// 1)
 					((((move.getStartY())+3)>=0) && (((move.getStartY())+3)<=7)) &&
 					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&	
@@ -128,9 +115,7 @@ public class IA {
 					((s.getCasella(((move.getEndX())-2), ((move.getEndY())-2))).getPedina().getColor()==0) &&
 					((s.getCasella(((move.getEndX())-2), ((move.getEndY())-2))).getPedina().getType()==true)) ||
 					
-					
-					
-					
+										
 					/* COONTROLLI PER SPINGERE A DIVENTARE DAMONE:
 					 * 1) DA SINISTRA A DESTRA
 					 * 2) DA DESTRA A SINISTRA
@@ -138,7 +123,6 @@ public class IA {
 					*/
 					
 									
-					
 					((move.getStartX()==5) &&
 					((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 1)
 					((((move.getStartY())+2)>=0) && (((move.getStartY())+2)<=7)) &&
@@ -146,25 +130,16 @@ public class IA {
 					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&
 					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&	
 					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
-					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina() == null) &&
-					
-					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() == null) &&
-					
-					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina() == null) &&		
-					
+					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina() == null) &&					
+					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() == null) &&					
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina() == null) &&							
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==false) &&
-					
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() == null) &&
-					
-					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&
-					
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==false) &&					
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() == null) &&					
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&					
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() == null)) ||
-					
-					
-					
-					
+										
 					((move.getStartX()==5) &&
 					((((move.getStartX())+2)>=0) && (((move.getStartX())+2)<=7)) &&				// 2)
 					((((move.getStartY())-2)>=0) && (((move.getStartY())-2)<=7)) &&
@@ -172,20 +147,14 @@ public class IA {
 					((((move.getEndX())-1)>=0) && (((move.getEndX())-1)<=7)) &&
 					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&	
 					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
-					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina() == null) &&
-							
-					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() == null) &&
-							
-					((s.getCasella(((move.getStartX())+2), ((move.getStartY())-2))).getPedina() == null) &&		
-							
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() == null) &&
-							
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina() == null) &&							
+					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() == null) &&							
+					((s.getCasella(((move.getStartX())+2), ((move.getStartY())-2))).getPedina() == null) &&									
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() == null) &&							
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getType()==false) &&
-							
-					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&
-							
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getType()==false) &&							
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&							
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() == null)) ||
 					
 					
@@ -193,6 +162,7 @@ public class IA {
 					 * 1) DA DESTRA A SINISTRA
 					 * 2) DA SINISTRA A DESTRA
 					 */
+					
 					
 					((move.getStartX()==6) &&
 					((((move.getStartX())+1)>=0) && (((move.getStartX())+1)<=7)) &&				// 1)
@@ -204,8 +174,6 @@ public class IA {
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getType()==false)) ||
 					
-					
-					
 					((move.getStartX()==6) &&
 					((((move.getStartX())+1)>=0) && (((move.getStartX())+1)<=7)) &&				// 2)
 					((((move.getStartY())+1)>=0) && (((move.getStartY())+1)<=7)) &&
@@ -214,14 +182,9 @@ public class IA {
 					((s.getCasella(((move.getStartX())+1), ((move.getStartY())+1))).getPedina() == null) &&	
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==false))						
-					
-					
-					
-					){
-				System.out.println("MOSSA VINCENTE: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY());
-				listTemp.add(move);	
-				
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==false))){
+
+				listTemp.add(move);					
 				
 			}
 			
@@ -257,6 +220,7 @@ public class IA {
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getType()==false) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==0)) ||
@@ -274,6 +238,7 @@ public class IA {
 					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina() == null) &&					
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==false) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&	
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
@@ -294,7 +259,8 @@ public class IA {
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==0) &&					
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&					
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==1) &&	
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getType()==false) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&					
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1)) ||
@@ -311,7 +277,8 @@ public class IA {
 					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina().getColor()==1) &&							
 					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina() == null) &&								
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&
-					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&							
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getColor()==1) &&	
+					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina().getType()==false) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getColor()==0) &&							
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
@@ -631,17 +598,8 @@ public class IA {
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==0) &&					
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
-					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1)) 
-												
-											
-					
-						
-											
-					)){
+					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1)))){
 
-
-
-				System.out.println("MOSSA VINCENTE: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY());
 				listTemp.add(move);				
 
 			}
@@ -1585,53 +1543,39 @@ public class IA {
 
 					listTemp.add(move);
 
-					System.out.println("MOVIMENTI DA TENERE BUONI IA: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY()+"");
-
 				}	
-				else{
-					System.out.println("MOVIMENTI DA SCARTARE IA: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY()+"");
-				}
-		}
+
 			}
-		
-		
-		
-		
-		if (listTemp.size() != 0)
-		
-		{		
-		s.getList().clear();
-		s.getList().addAll(listTemp);
-		listTemp.clear();
-		
 		}
 		
 			
+		if (listTemp.size() != 0)
+
+		{		
+			s.getList().clear();
+			s.getList().addAll(listTemp);
+			listTemp.clear();
+
+		}
+
+
 		if (s.getList().size() != 0){
-		
-		for (Movimento move : s.getList()){
-			System.out.println("MOVIMENTI VALIDI DOPO CONTROLLO IA: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY()+"");
-		}
-		
-		listTemp.add(s.getList().get(ran.nextInt(s.getList().size())));
-		s.getList().clear();
-		s.getList().addAll(listTemp);
-		
-		for (Movimento move : s.getList()){
-			System.out.println("MOVIMENTO SCELTO DA IA: "+move.getStartX()+","+move.getStartY()+"-->"+move.getEndX()+","+move.getEndY()+"");
-		}
+
+			listTemp.add(s.getList().get(ran.nextInt(s.getList().size())));
+			s.getList().clear();
+			s.getList().addAll(listTemp);
+
 		}
 	}
-	
+
+	// Funzione che fa eseguire la mossa o la mangiare al computer
 
 	public void moveIA(){
-		
+
 		if (s.getList().size()!=0){
 			r =	ran.nextInt(s.getList().size());
 			s.move(s.getList().get(r).getStartX(), s.getList().get(r).getStartY(), s.getList().get(r).getEndX(), s.getList().get(r).getEndY());
-			System.out.println("MOSSA IA FATTA");
-			System.out.println();
-			
+
 		}
 	}
 

@@ -158,6 +158,7 @@ public class ScacchieraGrafica implements ActionListener {
 		}
 		refreshCaselle();
 		f.setLabel();
+		
 		if (s.getList().size()==0){
 			s.calculateMovementsAll();
 			if (s.getList().size()==0){

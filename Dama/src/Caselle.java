@@ -1,10 +1,16 @@
-//CASELLE
+
 public class Caselle {
     
 	private int x;                              // Indico la riga della casella
 	private int y;                              // Indico la colonna della casella
 	private int boxColor;                       // Definisco il colore della casella; 0 bianca , 1 nera
 	private Pedina pedina;                      // Definisco un oggetto pedina all'interno di una casella
+	
+	/* Definisco i colori di ogni casella ed assegno alle caselle nere nelle prime tre righe
+	 * e ultime tre righe le pedine; per le prime tre le pedine saranno nere, mentre per le
+	 * ultime tre saranno bianche.
+	 */
+	
 	public Caselle(int x, int y){
 		this.x = x;
 		this.y = y;

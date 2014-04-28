@@ -17,12 +17,10 @@ public class ThreadIA implements Runnable {
 		try {
 
 			if (s.getList().size()!=0){
-
 				ia.moveIA();
 				Thread.sleep(1000);
 				refreshCaselle();
 				while (s.getGiocatore1().getTurn()!=true){
-
 					ia.moveIA();
 					Thread.sleep(1000);
 					refreshCaselle();
