@@ -28,7 +28,7 @@ public class Scacchiera {
 
 	}
 
-	/* Funzione che inserisce nell'array listmoves possibili mangiate che può fare il giocatore: 
+	/* Funzione che inserisce nell'array listMoves possibili mangiate che può fare il giocatore: 
 	 * La funzione è divisa in due parti, ovvero canEat e calculateEat; la prima, visto che il
 	 * controllo viene fatto su tutta la scacchiera in quanto le mangiate nella dama italiana
 	 * sono obbligatorie e vanno controllate tutte subito, serve per fare in modo di non 
