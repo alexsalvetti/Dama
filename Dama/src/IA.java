@@ -1534,7 +1534,7 @@ public class IA {
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getType()==true)) ||	
 										
-					(move.getStartX()==5)					
+					(move.getStartX()==5) || (move.getStartX()==0)				
 
 				    ))
 
