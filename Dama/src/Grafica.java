@@ -84,19 +84,17 @@ public class Grafica extends JFrame {
 		for(i=0; i<8; i++){
 			for(j=0; j<8; j++){
 				JButton b = new JButton("");  		
-				
+				b.setFocusPainted(false);
 				if ((i+j)%2==0){
 					b.setBackground(new Color(61,43,31));
 					if (i>=0 && i<=2){
 						b.setIcon(new ImageIcon(im2));
-						b.setFocusPainted(false);
 						
 					}	
 					
 					
 					else if (i>=5 && i<=7){
 						b.setIcon(new ImageIcon(im1));
-						b.setFocusPainted(false);
 
 					}        		   
 
