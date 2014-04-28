@@ -61,7 +61,7 @@ public class Grafica extends JFrame {
 		ia = new IA(s);
 		int i,j;
 		setSize(700,700);
-		this.setIconImage(icona);
+		setIconImage(icona);
 		menuBar.add(optionsMenu);
 		nuovaAction.addActionListener(new ListenMenu1(fm,s));
 		ricominciaAction.addActionListener(new ListenMenu2(fm,g1,g2,s));
@@ -69,6 +69,7 @@ public class Grafica extends JFrame {
 		optionsMenu.add(ricominciaAction);	
 		setJMenuBar(menuBar);	
 		loadIcons();
+		setIconImage(icona);
 		Dimension screenSize = Toolkit.getDefaultToolkit ().getScreenSize ();
 		Dimension frameSize = getSize();
 		setLocation((screenSize.width - frameSize.width) / 2,(screenSize.height - frameSize.height) / 2);
@@ -135,7 +136,7 @@ public class Grafica extends JFrame {
 			im2 = ImageIO.read(new File("images/pedina2.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH);
 			im3 = ImageIO.read(new File("images/pedina3.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH);
 			im4 = ImageIO.read(new File("images/pedina4.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH);
-			icona =Toolkit.getDefaultToolkit().getImage("images/icona.gif");
+			icona = Toolkit.getDefaultToolkit().getImage("images/icona.gif");
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

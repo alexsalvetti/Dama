@@ -7,6 +7,9 @@ import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,6 +27,7 @@ public class Start extends JFrame {
 	private JButton b2 = new JButton("PLAYER 1 VS PLAYER 2");
 	private JLabel l1 = new JLabel("");
 	private JPanel p1 = new JPanel();
+	private Image icona;
 
 	public Start(){
 				
@@ -33,6 +37,8 @@ public class Start extends JFrame {
 		BackGround bg= new BackGround();
 		getContentPane().add(bg);
 		setVisible(true);		
+		icona = Toolkit.getDefaultToolkit().getImage("images/icona.gif");
+		setIconImage(icona);
 		Dimension screenSize = Toolkit.getDefaultToolkit ().getScreenSize ();
 		Dimension frameSize = getSize();		
 		setLocation((screenSize.width - frameSize.width) / 2,(screenSize.height - frameSize.height) / 2);
