@@ -9,6 +9,9 @@ public class Pedina {
 		this.type = type;
 		
 	}
+	
+	// get e set degli attributi
+	
 	public int getColor(){
 		return color;
 	}

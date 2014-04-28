@@ -14,6 +14,8 @@ public class Movimento {
 		
 	}
 	
+	// get degli attributi
+	
 	public int getStartX(){
 		return startx;
 	}

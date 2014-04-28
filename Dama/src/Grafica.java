@@ -52,7 +52,7 @@ public class Grafica extends JFrame {
 
 	public Grafica(Giocatore g1,Giocatore g2){ 
 
-		super("Dama 1.0");	
+		super("Dama 1.0 - By Fafu, Alex & Silvia");	
 		setResizable(false);
 		this.g1=g1;
 		this.g2=g2;

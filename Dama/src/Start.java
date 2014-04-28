@@ -27,7 +27,7 @@ public class Start extends JFrame {
 
 	public Start(){
 				
-		super("Dama 1.0");
+		super("Dama 1.0 - By Fafu, Alex & Silvia");
 		setResizable(false);		
 		setSize(700,700);
 		BackGround bg= new BackGround();
