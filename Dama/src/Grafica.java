@@ -51,6 +51,7 @@ public class Grafica extends JFrame {
 	 * oppure la vittoria di un giocatore; il secondo pannello ha un layout Gridlayout(8,8) che contiene i 64 bottoni (caselle).
 	 */
 
+	
 	public Grafica(Giocatore g1,Giocatore g2){ 
 
 		super("Dama 1.0 - By Fafu, Alex & Silvia");	
