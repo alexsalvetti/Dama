@@ -11,6 +11,8 @@ public class Giocatore {
 		this.turn = turn;
 		this.type = type;
 	}
+	
+	// Funzioni get e set per gli attributi
 
 	public boolean getTurn(){
 		return turn;

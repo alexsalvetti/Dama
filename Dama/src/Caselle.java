@@ -8,7 +8,7 @@ public class Caselle {
 	
 	/* Definisco i colori di ogni casella ed assegno alle caselle nere nelle prime tre righe
 	 * e ultime tre righe le pedine; per le prime tre le pedine saranno nere, mentre per le
-	 * ultime tre saranno bianche.
+	 * ultime tre saranno bianche. Se quella casella non ha pedine setto l'oggetto pedina a null.
 	 */
 	
 	public Caselle(int x, int y){
@@ -41,6 +41,8 @@ public class Caselle {
 			this.pedina = null;
 		
 	}		
+	
+	// Funzioni get e set per gli attributi
 	
 	public int getRow(){
 		return x;

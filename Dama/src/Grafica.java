@@ -45,7 +45,10 @@ public class Grafica extends JFrame {
 	private Scacchiera s = new Scacchiera(g1,g2);
 	private IA ia;
 	
-
+	/* Creazione della grafica principale del gioco: prima passo al costruttore della scacchiera i due giocatori e poi inizio la grafica
+	 * vera e propria. Essa è composta da due pannelli aventi layout GridLayout(2,0): il primo contiene la label che definisce il turno di un giocatore
+	 * oppure la vittoria di un giocatore; il secondo pannello ha un layout Gridlayout(8,8) che contiene i 64 bottoni (caselle).
+	 */
 
 	public Grafica(Giocatore g1,Giocatore g2){ 
 
@@ -122,6 +125,8 @@ public class Grafica extends JFrame {
 	}
 
 
+	// Funzione che carica le immagini delle pedine dalla directory "Dama/images"
+	
 	private void loadIcons(){
 		try {
 			im1 = ImageIO.read(new File("images/pedina1.gif")).getScaledInstance(75, 75, Image.SCALE_SMOOTH);
@@ -187,6 +192,8 @@ public class Grafica extends JFrame {
 	}
 }
 
+// Funzione collegata all'evento di pressione sulla voce del menu "Nuova partita"
+
 class ListenMenu1 implements ActionListener {
 
 	private JFrame fr;
@@ -206,6 +213,8 @@ class ListenMenu1 implements ActionListener {
 		Start f = new Start();
 	}
 }
+
+//Funzione collegata all'evento di pressione sulla voce del menu "Ricomincia partita"
 
 class ListenMenu2 implements ActionListener {
 
