@@ -26,6 +26,8 @@ public class Start extends JFrame {
 	private JPanel p1 = new JPanel();
 	private Image icona;
 
+	// Inizializza la schermata iniziale del gioco, dove scelgo che partita voglio effettuare
+	
 	public Start(){
 				
 		super("Dama 1.0 - By Fafu, Alex & Silvia");
@@ -57,6 +59,8 @@ public class Start extends JFrame {
 	
 }
 
+
+// Classe che serve per importare uno sfondo che andrà caricato poi nel frame principale
 
 class BackGround extends JPanel {
 	 
@@ -91,7 +95,7 @@ class BackGround extends JPanel {
     }
 }
     
-
+// Evento del pulsante "Player VS PC"
 
 class ListenButton1 implements ActionListener {
 	
@@ -109,6 +113,8 @@ class ListenButton1 implements ActionListener {
 		Grafica f = new Grafica(new Giocatore(0,true,false),new Giocatore(1,false,true));
 	}
 }
+
+// Evento del pulsante "Player VS Player"
 
 class ListenButton2 implements ActionListener {
 	
