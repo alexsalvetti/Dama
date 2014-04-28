@@ -14,8 +14,7 @@ public class IA {
 		
 	}
 
-	
-	
+		
 	/* Funzione che calcola le mosse per il computer. La funzione è divisa in 3 parti:
 	 * nella prima fase calcola, tra tutte le mosse possibili, se ci sono mosse intelligenti che darebbero vantaggio;
 	 * se non trova mosse intelligenti, passa alla seconda fase che scarta tutte le mossi peggiori dalla lista completa
