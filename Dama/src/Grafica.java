@@ -25,11 +25,11 @@ public class Grafica extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	JFrame fm = this;
-	JMenuBar menuBar = new JMenuBar();
-	JMenu optionsMenu = new JMenu("Opzioni");
-	JMenuItem nuovaAction = new JMenuItem("Nuova Partita");
-	JMenuItem ricominciaAction = new JMenuItem("Ricomincia Partita");
+	private JFrame fm = this;
+	private JMenuBar menuBar = new JMenuBar();
+	private JMenu optionsMenu = new JMenu("Opzioni");
+	private JMenuItem nuovaAction = new JMenuItem("Nuova Partita");
+	private JMenuItem ricominciaAction = new JMenuItem("Ricomincia Partita");
 	private Image im1;
 	private Image im2;
 	private Image im3;
