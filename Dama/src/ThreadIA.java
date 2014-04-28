@@ -13,6 +13,10 @@ public class ThreadIA implements Runnable {
 		this.ia = ia;
 	}
 
+	/* Tutta la funzione che gestisce la partita contro il computer viene gestita all'interno di questo Thread, in quanto bisogna simulare il computer
+	 * mentre sta "pesando la mossa", quindi far bloccare il refresh delle caselle per un secondo, senza che si blocchi l'intero programma
+	 */
+	
 	public void run(){
 		try {
 
