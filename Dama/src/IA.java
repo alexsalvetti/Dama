@@ -6,8 +6,8 @@ public class IA {
 
 	private Scacchiera s;
 	private ArrayList<Movimento> listTemp = new ArrayList<Movimento>();
-	Random ran = new Random();
-	int r;
+	private Random ran = new Random();
+	private int r;
 
 	public IA(Scacchiera s){
 		this.s = s;
