@@ -23,6 +23,10 @@ public class ScacchieraGrafica implements ActionListener {
 		this.ia = ia;
 
 	}
+	
+	/* Ogni casella è collegata alla seguente funzione dell'evento di click. La funzione gestisce tutte le funzioni create nella classe Scacchiera ed IA
+	 * e le fa cooperare tra loro per il funzionamento complessivo del gioco.
+	 */
 
 	public void actionPerformed(ActionEvent e) {
 
@@ -49,6 +53,8 @@ public class ScacchieraGrafica implements ActionListener {
 			}
 		}
 	}
+	
+	// Questa funzione resetta le immagini delle pedine sulla scacchiera nella posizione corrente
 
 	private void refreshCaselle(){
 		
@@ -75,6 +81,8 @@ public class ScacchieraGrafica implements ActionListener {
 		
 	}
 
+	// Questa funzione resetta il colore di sfondo dei bottoni, quindi rimuove la selezione verde dalla casella selezionata
+	
 	private void refreshSelezione(){
 		
 		int i,j;
@@ -92,6 +100,8 @@ public class ScacchieraGrafica implements ActionListener {
 		}
 		
 	}
+	
+	// Questa funzione elimina tutte le pedine dalla scacchiera; viene chiamata a fine partita
 
 	private void resetScacchiera(){
 		
@@ -103,6 +113,8 @@ public class ScacchieraGrafica implements ActionListener {
 		}
 		
 	}
+	
+	// Effettua la selezione verde su un preciso bottone
 
 	private void selezioneRossa(){
 		
@@ -116,6 +128,8 @@ public class ScacchieraGrafica implements ActionListener {
 		
 	}
 
+	// Funzione che gestisce tutto il gioco in modalità "Player vs Player"
+	
 	private void playerVsPlayer(){
 		
 		refreshSelezione();	
@@ -176,6 +190,8 @@ public class ScacchieraGrafica implements ActionListener {
 		}
 		
 	}
+	
+	// Funzione che controlla se uno dei due giocatori ha vinto; se sì chiama la funzione setVincitore per settare correttamente l'etichetta
 
 	private boolean checkESetWinner(){
 		
