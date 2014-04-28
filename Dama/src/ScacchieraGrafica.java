@@ -25,7 +25,8 @@ public class ScacchieraGrafica implements ActionListener {
 	}
 	
 	/* Ogni casella è collegata alla seguente funzione dell'evento di click. La funzione gestisce tutte le funzioni create nella classe Scacchiera ed IA
-	 * e le fa cooperare tra loro per il funzionamento complessivo del gioco.
+	 * e le fa cooperare tra loro per il funzionamento complessivo del gioco. Se siamo in modalità "Player Vs Player" verrà chiamata la funzione 
+	 * playerVSPlayer, altrimenti se siamo in modalità "Player VS PC" avvio la funzione run della classe ThreadIA.
 	 */
 
 	public void actionPerformed(ActionEvent e) {
