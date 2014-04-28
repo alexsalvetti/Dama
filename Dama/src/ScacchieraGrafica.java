@@ -116,7 +116,7 @@ public class ScacchieraGrafica implements ActionListener {
 	
 	// Effettua la selezione verde su un preciso bottone
 
-	private void selezioneRossa(){
+	private void selezioneVerde(){
 		
 		if (s.getCasella(x, y).getBoxColor()==1 && s.getGiocatore1().getTurn()==true && s.getCasella(x, y).getPedina()!=null && s.getCasella(x, y).getPedina().getColor()==0 ){
 			f.getButton(x, y).setBackground(new Color(0,168,107));
@@ -133,7 +133,7 @@ public class ScacchieraGrafica implements ActionListener {
 	private void playerVsPlayer(){
 		
 		refreshSelezione();	
-		selezioneRossa();		
+		selezioneVerde();		
 		if (s.getList().size()==0){			
 			startx = x;
 			starty = y;			
@@ -154,7 +154,7 @@ public class ScacchieraGrafica implements ActionListener {
 				if (move.getPriority()==2)
 					f.getButton(move.getEndX(), move.getEndY()).setBackground(new Color(255,255,102));
 				else if (x==move.getStartX() && y == move.getStartY()){						
-					selezioneRossa();						
+					selezioneVerde();						
 					f.getButton(move.getEndX(), move.getEndY()).setBackground(new Color(255,255,102));
 				}
 			}
