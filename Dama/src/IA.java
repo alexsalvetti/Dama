@@ -1704,7 +1704,6 @@ public class IA {
 										
 					(move.getStartX()==5) || (move.getStartX()==0) 
 						
-
 				    ))
 
 				{
