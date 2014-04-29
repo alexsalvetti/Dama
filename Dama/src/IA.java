@@ -122,6 +122,8 @@ public class IA {
 					 * 4) DA DESTRA A SINISTRA
 					 * 5) DA SINISTRA A DESTRA
 					 * 6) DA DESTRA A SINISTRA
+					 * 7) DA SINISTRA A DESTRA
+					 * 8) DA DESTRA A SINISTRA
 					 *  
 					*/
 					
@@ -208,7 +210,7 @@ public class IA {
 					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&	
 					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
 					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina() != null) &&		
-					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina().getColor()==1) &&							
+					((s.getCasella((move.getStartX()), ((move.getStartY())+2))).getPedina().getColor()==0) &&							
 					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() == null) &&							
 					((s.getCasella(((move.getStartX())+2), ((move.getStartY())+2))).getPedina() == null) &&								
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&	
@@ -228,7 +230,7 @@ public class IA {
 					((((move.getEndY())+1)>=0) && (((move.getEndY())+1)<=7)) &&	
 					((((move.getEndY())-1)>=0) && (((move.getEndY())-1)<=7)) &&	
 					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina() != null) &&		
-					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina().getColor()==1) &&									
+					((s.getCasella((move.getStartX()), ((move.getStartY())-2))).getPedina().getColor()==0) &&									
 					((s.getCasella(((move.getStartX())+2), (move.getStartY()))).getPedina() == null) &&							
 					((s.getCasella(((move.getStartX())+2), ((move.getStartY())-2))).getPedina() == null) &&										
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())-1))).getPedina() != null) &&	
@@ -239,8 +241,8 @@ public class IA {
 					((s.getCasella(((move.getEndX())-1), ((move.getEndY())+1))).getPedina().getType()==false) &&										
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina() == null) &&							
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() == null)) ||
-									
-														
+					
+																			
 					/* ALTRI CONTROLLI PER DIVENTARE DAMONE DA RIGA 6
 					 * 1) DA DESTRA A SINISTRA
 					 * 2) DA SINISTRA A DESTRA
@@ -1662,7 +1664,6 @@ public class IA {
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())-1))).getPedina().getColor()==0) &&					
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina() != null) &&
 					((s.getCasella(((move.getEndX())+1), ((move.getEndY())+1))).getPedina().getColor()==1)) ||
-					
 										
 					(move.getStartX()==5) || (move.getStartX()==0)				
 
