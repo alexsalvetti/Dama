@@ -122,8 +122,6 @@ public class IA {
 					 * 4) DA DESTRA A SINISTRA
 					 * 5) DA SINISTRA A DESTRA
 					 * 6) DA DESTRA A SINISTRA
-					 * 7) DA SINISTRA A DESTRA
-					 * 8) DA DESTRA A SINISTRA
 					 *  
 					*/
 					
