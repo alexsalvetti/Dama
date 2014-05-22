@@ -128,7 +128,7 @@ class ListenButton2 implements ActionListener {
 		fr.setVisible(false);
 		fr.dispose();
 		@SuppressWarnings("unused")
-		Grafica f = new Grafica(new Giocatore(0,true,false),new Giocatore(1,true,false));
+		Grafica f = new Grafica(new Giocatore(0,true,false),new Giocatore(1,false,false));
 		
 	}
 }
